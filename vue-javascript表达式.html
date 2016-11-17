@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+</head>
+<body>
+   <div id="box">
+        <span>{{number +1}}</span>
+        <span>{{flag?'YES':'No'}}</span>
+        <span>{{msg.split('').reverse().join('-')}}</span>
+       <span :id="'list-'+id"></span>
+   </div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el:'#box',
+        data:{
+            number:1,
+            flag:false,
+            msg:'hello vue',
+            id:123
+        }
+    })
+</script>
+</body>
+</html>
+

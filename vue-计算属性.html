@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+</head>
+<body>
+   <div id="box">
+        <h3>计算属性</h3>
+        <p>{{msg}}</p>
+        <p>{{reverseMsg}}</p>
+   </div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el:'#box',
+        data:{
+            msg:"hello"
+        },
+        computed:{
+            reverseMsg:function () {
+                return this.msg.split('').reverse().join('-');
+            }
+        }
+    })
+</script>
+</body>
+</html>
+

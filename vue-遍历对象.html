@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+</head>
+<body>
+   <ul id="box">
+       <h3>v-for 循环 遍历对象</h3>
+       <li v-for="(value,key,index) in object">
+           {{index}} -- {{key}}--{{value}}
+       </li>
+       <h3>遍历整数</h3>
+       <div>
+           <span v-for="n in 10">
+               {{n}}
+           </span>
+       </div>
+   </ul>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el:'#box',
+        data: {
+            object: {
+                name: 'jack',
+                age: 18
+            }
+        }
+    })
+</script>
+</body>
+</html>
+

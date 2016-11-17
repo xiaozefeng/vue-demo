@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+</head>
+<body>
+   <div id="box">
+        {{msg | lowercase('love','money')}}
+   </div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el:'#box',
+        data:{
+            msg:"WELCOME"
+        },
+        filters:{
+            lowercase:function (value,ag1,ag2) {
+                if(value){
+                    return value.toString().toLowerCase()+ag1+ag2;
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
+

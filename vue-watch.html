@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+</head>
+<body>
+   <div id="box">
+       <h3>watch 可以观察属性的变化</h3>
+       <input type="text" v-model="msg">
+
+   </div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el:'#box',
+        data:{
+           msg:"hello"
+        },
+        watch:{
+            msg:function (newVal,oldVal) {
+                alert("oldVal===" + oldVal);
+                alert("newVal===" + newVal);
+            }
+        }
+    })
+</script>
+</body>
+</html>
+

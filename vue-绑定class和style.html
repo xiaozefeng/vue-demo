@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+    <style>
+        .active{
+            background-color: rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+   <div id="box">
+      <div :class="{active:show}">hello vue</div>
+       <div><button @click="hiddenclass()">取消</button></div>
+   </div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el:'#box',
+        data:{
+            show:true
+        },
+        methods:{
+            hiddenclass:function () {
+                this.show = false;
+            }
+        }
+    })
+</script>
+</body>
+</html>
+
