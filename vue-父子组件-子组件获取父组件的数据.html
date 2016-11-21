@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+</head>
+<body>
+   <div id="box">
+       <h1>在父组件中引用子组件，可以给子组件绑定一个属性，子组件通过prop属性来接收</h1>
+       <aaa></aaa>
+   </div>
+
+   <template id="aaa">
+       <h1>我是aaa组件 ->{{msg}}</h1>
+       <bbb :m="msg"></bbb>
+   </template>
+<!--<script src="https://unpkg.com/vue/dist/vue.js"></script>-->
+   <script src="vue1-0.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#box',
+        data: {},
+        components: {
+            'aaa': {
+                data: function () {
+                    return {
+                        msg: '我是aaa组件的数据'
+                    }
+                },
+                template: '#aaa',
+                components: {
+                    'bbb': {
+                        props:['m'],
+                        template: '<h3>我是bbb组件-> {{m}}</h3>'
+                    }
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
+

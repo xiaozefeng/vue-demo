@@ -11,7 +11,17 @@
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script type="text/javascript">
     Vue.component('my-component',{
-        template:'<div>A custom component!</div>'
+        data:function () {
+            return {
+                msg:'我是子组件'
+            }
+        },
+        template:'<div @click="change">A custom component!{{msg}}</div>'
+        ,methods:{
+            change:function () {
+                this.msg = 'changed';
+            }
+        }
     })
     new Vue({
         el:'#box',

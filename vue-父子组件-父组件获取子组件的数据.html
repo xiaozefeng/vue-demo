@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+</head>
+<body>
+   <div id="box">
+       <h1>子组件主动发送数据，同在监听发送的事件名，在父组件中可以获取到监听到的事件中的数据</h1>
+       <aaa></aaa>
+   </div>
+
+   <template id="aaa">
+       <h1>我是aaa组件 ->{{msg}}</h1>
+       <bbb @child-msg="get"></bbb>
+   </template>
+
+   <template id="bbb">
+       <h3>我是bbb组件-> {{msg}}</h3>
+       <div><input type="button" value="send" @click="send"></div>
+   </template>
+   <script src="vue1-0.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#box',
+        data: {},
+        components: {
+            'aaa': {
+                data: function () {
+                    return {
+                        msg: '我是aaa组件的数据'
+                    }
+                },
+                methods:{
+                    get:function (val) {
+                        this.msg = val;
+                    }
+                },
+                template: '#aaa',
+                components: {
+                    'bbb': {
+                        data:function () {
+                            return {
+                                msg:'我是子组件的数据'
+                            }
+                        },
+                        methods:{
+                            send:function () {
+                                this.$emit('child-msg', this.msg);
+                            }
+                        },
+                        template: '#bbb'
+                    }
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
+

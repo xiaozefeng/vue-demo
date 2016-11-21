@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+</head>
+<body>
+   <div id="box">
+        <my-component></my-component>
+        <my-component></my-component>
+        <my-component></my-component>
+   </div>
+   <template id="temp">
+        <ul>
+            <li v-for="val in arr">
+                {{val}}
+            </li>
+        </ul>
+   </template>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#box',
+        data: {
+            msg: '呵呵'
+        },
+        components:{
+            'my-component':{
+                data:function(){
+                    return {
+                        arr:['apple','orange','tomato']
+                    };
+                },
+                methods:{
+
+                },
+                template:'#temp'
+            }
+        }
+    });
+</script>
+</body>
+</html>
+

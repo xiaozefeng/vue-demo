@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+</head>
+<body>
+    <h3>slot 占个位置</h3>
+    <div id="box"></div>
+    <template id="my-component">
+
+    </template>
+<script src="vue1-0.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el:"#box",
+        data:{
+
+        },
+        components:{
+            'my-component':{
+                template:'#my-component'
+            }
+        }
+    })
+</script>
+</body>
+</html>
+

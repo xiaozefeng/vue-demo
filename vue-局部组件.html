@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+</head>
+<body>
+   <div id="box">
+        <my-component></my-component>
+   </div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#box',
+        data: {
+            msg: '呵呵'
+        },
+        components:{
+            'my-component':{
+                data:function(){
+                    return {
+                        msg: '我是子组件的数据'
+                    };
+                },
+                methods:{
+                    change:function () {
+                        this.msg = 'changed';
+                    }
+                },
+                template:'<h3 @click="change">我是组件 {{msg}}</h3>'
+            }
+        }
+    });
+</script>
+</body>
+</html>
+

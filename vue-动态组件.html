@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+</head>
+<body>
+   <div id="box">
+       <input type="button" value="aaa组件" @click="change('aaa')">
+       <input type="button" value="bbb组件" @click="change('bbb')">
+       <component :is="a"></component>
+   </div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+   var vm = new Vue({
+        el:'#box',
+        data:{
+            a:'aaa'
+        },
+        methods:{
+            change:function (input) {
+                this.a = input
+            }
+        },
+        components:{
+            'aaa':{
+                template:'<h3>aaa组件</h3>'
+            },
+            'bbb':{
+                template:'<h3>bbb组件</h3>'
+            }
+        }
+    })
+</script>
+</body>
+</html>
+
