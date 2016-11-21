@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+</head>
+<body>
+   <div id="box">
+        <ul>
+            <li>
+                <a v-link="{path:'/home'}">主页</a>
+            </li>
+            <li>
+                <a v-link="{path:'/news'}">新闻</a>
+            </li>
+        </ul>
+       <div>
+           <router-view></router-view>
+       </div>
+   </div>
+
+   <template id="home">
+        <h3>我是主页</h3>
+        <div>
+            <a v-link="{path:'/home/login'}">登录</a>
+            <a v-link="{path:'/home/reg'}">注册</a>
+        </div>
+        <div>
+            <router-view></router-view>
+        </div>
+   </template>
+
+   <template id="news">
+       <h3>我是新闻</h3>
+   </template>
+<!--<script src="https://unpkg.com/vue/dist/vue.js"></script>-->
+   <script src="vue1-0.js"></script>
+   <script src="vue-router0.7.4.js"></script>
+<script type="text/javascript">
+    //1.准备根组件
+    var App = Vue.extend();
+    //2.准备home组件
+    var Home = Vue.extend({
+        template:'#home'
+    });
+
+    //3.准备news组件
+    var  News = Vue.extend({
+        template:'#news'
+    });
+    //4.准备路由
+    var router = new VueRouter();
+
+    //关联组件
+    router.map({
+        'home':{
+            component:Home,
+            subRoutes:{
+                'login':{
+                    component:{
+                        template:'<strong>我是登录</strong>'
+                    }
+                },
+                'reg':{
+                    component:{
+                        template:'<strong>我是注册</strong>'
+                    }
+                }
+            }
+        },
+        'news':{
+            component:News
+        }
+    });
+    //启动路由
+    router.start(App, '#box');
+
+    router.redirect({
+        '/':'/home'
+    })
+</script>
+</body>
+</html>
+
