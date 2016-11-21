@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+</head>
+<body>
+   <ul id="box">
+       <h3>v-for 循环 渲染列表</h3>
+       <input type="text" v-model="t1" @keyup.enter="add">
+       <li v-for="(item,value) of myData" track-by="index">
+           {{item}}
+       </li>
+   </ul>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+       el:'#box',
+       data:{
+           t1:'',
+           myData:[]
+       },
+       methods:{
+           add:function () {
+               this.myData.push(this.t1);
+           }
+       }
+    });
+</script>
+</body>
+</html>
+

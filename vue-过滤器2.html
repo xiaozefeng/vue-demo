@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+</head>
+<body>
+   <div id="box">
+        <h3>自定义过滤器</h3>
+       <input type="text" v-model="msg | filterHtml">
+
+       <div v-html="msg"></div>
+   </div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    Vue.filter('filterHtml', {
+        read: function (input) {
+              return input.replace(/<[^+<]>/g,'');
+        },
+        write: function (val) {
+            return val;
+        }
+    });
+    new Vue({
+        el:'#box',
+        data:{
+            msg:'<strong>hello vue</strong>'
+        }
+    })
+</script>
+</body>
+</html>
+

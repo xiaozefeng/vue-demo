@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vuejs</title>
+</head>
+<body>
+    <h1>vue 的实例方法</h1>
+   <div id="box">
+        {{a}}
+   </div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    var vm =new Vue({
+        aa:11,
+        show:function () {
+            alert('show');
+        },
+        data:{
+            a:1
+        }
+    }).$mount("#box");
+
+    alert(vm.$options.aa);
+    vm.$options.show();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vuejs</title>
+</head>
+<body>
+    <h1>计算属性 get set 方法</h1>
+   <div id="box">
+        <h3>a==>{{a}}</h3>
+        <h3>b==>{{b}}</h3>
+   </div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    var vm =new Vue({
+        el:'#box',
+        data:{
+            a:1
+        },
+        computed:{
+            b:{
+                get:function () {
+                    return this.a + 2;
+                },
+                set:function (val) {
+                    this.a = val;
+                }
+            }
+        }
+    });
+
+    document.onclick=function () {
+        vm.b = 100;
+    }
+</script>
+</body>
+</html>
+

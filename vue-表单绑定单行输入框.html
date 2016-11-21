@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+</head>
+<body>
+   <div id="box">
+       <h3>绑定input</h3>
+       <input type="text" v-model.lazy="msg" placeholder="修改我">
+       <p>
+           {{msg}}
+       </p>
+   </div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el:'#box',
+        data:{
+            msg:""
+        }
+    })
+</script>
+</body>
+</html>
+

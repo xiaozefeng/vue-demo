@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+</head>
+<body>
+   <div id="box">
+       <h3>绑定多个多选框，获取的是value</h3>
+       <input type="checkbox" id="jack" value="Jack" v-model="checkNames">
+       <label for="jack">Jack</label>
+       <input type="checkbox" id="rose" value="Rose" v-model="checkNames">
+       <label for="rose">Rose</label>
+       <input type="checkbox" id="lucy" value="Lucy" v-model="checkNames">
+       <label for="lucy">Lucy</label>
+       <p>{{checkNames}}</p>
+   </div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el:'#box',
+        data:{
+            checkNames:[]
+        }
+    })
+</script>
+</body>
+</html>
+

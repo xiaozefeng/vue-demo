@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js</title>
+</head>
+<body>
+   <div id="box">
+      <h3>自定义指令</h3>
+       {{msg}}
+   </div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+
+    var vm = new Vue({
+        el:'#box',
+        data:{
+            msg:'hello world'
+        }
+    })
+</script>
+</body>
+</html>
+

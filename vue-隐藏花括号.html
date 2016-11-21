@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在网速慢的时候会显示花括号</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <span v-cloak>{{msg}}</span>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#box',
+        data: {
+            msg: 'hello vue'
+        }
+    });
+</script>
+</body>
+</html>
+
