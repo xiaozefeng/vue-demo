@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">
+            {{msg}} <br>
+        <input type="button" value="更新组件" @click="change">
+        <input type="button" value="销毁组件" @click="destoryMsg">
+    </div>
+</body>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:'#box',
+        data:{
+            msg:'Hello Vue2.0!'
+        },
+        methods:{
+            change(){
+                this.msg='changed'
+            },
+            destoryMsg(){
+                this.$destroy();
+            }
+        },
+        beforeCreate(){
+            console.log('组件刚刚创建,属性');
+        },
+        created(){
+            console.log('组件创建完成');
+        },
+        beforeMount(){
+            console.log('组件编译之前');
+        },
+        mounted(){
+            console.log('组件编译完成');
+        },
+        beforeUpdate(){
+            console.log('组件更新之前');
+        },
+        updated(){
+            console.log('组件更新完成');
+        },
+        beforeDestroy(){
+            console.log('组件销毁之前');
+        },
+        destroyed(){
+            console.log('组件销毁');
+        }
+    })
+</script>
+</html>

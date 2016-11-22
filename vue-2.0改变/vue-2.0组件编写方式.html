@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">
+        <h1>2.0的组件必须用一个根元素包裹住全部的元素，否者会报错</h1>
+            {{msg}}<br>
+        <aaa></aaa>
+    </div>
+<template id="aaa">
+    <div>
+        <strong>我是加粗</strong>
+        <h3>我是组件</h3>
+    </div>
+</template>
+</body>
+<script src="vue.js"></script>
+<script>
+    Vue.component('aaa',{
+        template:'#aaa'
+    });
+
+    new Vue({
+        el:'#box',
+        data:{
+            msg:'Hello Vue2.0!'
+        }
+    })
+</script>
+</html>
