@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>父子组件</h1>
+    <div id="box">
+        <span>我是父组件</span> --->{{msg}}
+
+        <my-component :data="msg"></my-component>
+    </div>
+<template id="my-component">
+    <div>
+        <h3>我是子组件-->{{data}}</h3>
+    </div>
+</template>
+</body>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:'#box',
+        data:{
+            msg:'我是父组件数据'
+        },
+        components:{
+            'my-component':{
+                props:['data'],
+                data(){
+                    return {
+                        a:'我是子组件数据'
+                    }
+                },
+                template:'#my-component'
+            }
+        }
+    });
+</script>
+</html>

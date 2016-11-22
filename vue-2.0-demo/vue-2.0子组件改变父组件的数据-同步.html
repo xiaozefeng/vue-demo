@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>vue2.0子组件想要改变父组件的数据，必须是父组件传递一个json对象给子组件，vue2.0不允许直接改变数据，但是可以改变对象的属性</h1>
+
+    <div id="box">
+        <span>我是父组件</span> --->{{msg.a}}
+
+        <my-component :data="msg"></my-component>
+    </div>
+<template id="my-component">
+    <div>
+        <h3>我是子组件-->{{data.a}}</h3> <span><input type="button" value="改变父组件数据" @click="change"></span>
+    </div>
+</template>
+</body>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:'#box',
+        data:{
+            msg:{
+                a:'我是父组件数据'
+            }
+        },
+        components:{
+            'my-component':{
+                props:['data'],
+                template:'#my-component',
+                methods:{
+                    change(){
+                        this.data.a='父组件数据被改变了'
+                    }
+                }
+            }
+        }
+    });
+</script>
+</html>

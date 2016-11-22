@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">
+        <com-a></com-a>
+        <hr>
+        <com-b></com-b>
+        <hr>
+        <com-c></com-c>
+    </div>
+
+    <template id="a">
+        <div>
+            <span>A组件 -->{{a}}</span>
+
+            <input type="button" value="把A组件的数据发送给C" @click="send">
+        </div>
+    </template>
+
+    <template id="b">
+        <div>
+            <span>B组件 -->{{b}}</span>
+
+            <input type="button" value="把A组件的数据发送给C"  @click="send">
+        </div>
+    </template>
+
+    <template id="c">
+        <div>
+            <span>C组件 --></span>
+            <div>A组件的数据---> {{a}}</div>
+            <div>B组件的数据--->  {{b}}</div>
+        </div>
+    </template>
+</template>
+</body>
+<script src="vue.js"></script>
+<script>
+    //定义一个公共Vue对象发送数据
+    var Event= new Vue();
+
+    var A =Vue.component('com-a',{
+        template:'#a',
+        data(){
+            return {
+                a:'A组件的数据'
+            }
+        },
+        methods:{
+            send(){
+                Event.$emit("send-a", this.a);
+            }
+        }
+    });
+    var B =Vue.component('com-b',{
+        template:'#b',
+        data(){
+            return {
+                b:'B组件的数据'
+            }
+        },
+        methods:{
+            send(){
+                Event.$emit("send-b", this.b);
+            }
+        }
+    });
+    var C =Vue.component('com-c',{
+        template:'#c',
+        data(){
+            return{
+                a:'',
+                b:''
+            }
+        },
+        mounted(){
+            //接受A组件的数据
+            Event.$on("send-a", function (data) {
+                this.a = data;
+            }.bind(this));
+            //接受B组件的数据
+            Event.$on('send-b',function (data) {
+                this.b = data;
+            }.bind(this))
+        }
+    });
+
+    new Vue({
+        el:'#box'
+    })
+</script>
+</html>
